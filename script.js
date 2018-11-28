@@ -1,31 +1,22 @@
 $(document).ready(function() {
-  $('#searchUser').on('keyup', function(e){
-  	restaurantName = e.target.value;
+  $('#searchRestaurant').on('keyup', function(e){
+  	let nameRestaurant = e.target.value;
 
-  
+  			$.ajax({
+  				url:` https://opentable.herokuapp.com/api/restaurants?city=Toronto&name=${nameRestaurant}`,
+  				method: 'GET',
+  				dataType: 'json'
+  			}).done(function(restaurant){
+  				$.each(restaurant, function(index, place){
+  			     for(i = 0; i < place.length; i++){
+              console.log(place[0])
 
-
-
-
-$.ajax({
-	url:'https://developers.zomato.com/api/v2.1/search?entity_id=Toronto&entity_type=city&q=' + restaurantName,
-	method: 'GET',
-	headers:{
-		'user-key':'a6c711f8b413efafed04235e5accd9be',
-		
-
-
-	}
-
-
-}).done(function(restaurants){
+             }
+  				})
+  			})
+  	
 
 
-	console.log(restaurants);
-
-})
-
-})
-
-
+	
+	})
 });
