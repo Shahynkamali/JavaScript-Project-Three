@@ -10,6 +10,7 @@ $(document).ready(function() {
   				$.each(restaurant, function(index, place){
   			     for(i = 0; i < place.length; i++){
               console.log(place[0])
+              console.log("Hello");
 
              }
   				})
