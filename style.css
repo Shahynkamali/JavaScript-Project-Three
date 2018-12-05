@@ -1,0 +1,17 @@
+
+
+.searchContainer{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.searchContainer button{
+	margin: 10px;
+    width: 154px;
+
+}
+
+li{
+	list-style-type: none;
+}
