@@ -3,7 +3,6 @@
 .searchContainer{
 	display: flex;
 	flex-direction: column;
-
 }
 
 .searchContainer button{
@@ -15,3 +14,4 @@
 li{
 	list-style-type: none;
 }
+
