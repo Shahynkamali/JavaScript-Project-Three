@@ -1,17 +1,71 @@
 
-
+.container{
+	display: flex;
+	flex-direction: row;
+}
 .searchContainer{
 	display: flex;
 	flex-direction: column;
+	width: 40%;
+	margin:5%;
+	height: 100vh;
+    overflow: auto;
 }
 
 .searchContainer button{
 	margin: 10px;
     width: 154px;
+    padding:10px;
+    height:40px;
 
+
+}
+.buttons{
+	display: flex;
+	flex-direction: row;
+	height:170px;
+}
+.listItems{
+	padding-top: 50px;
+}
+
+.listItems img{
+	width: 100%;
 }
 
 li{
 	list-style-type: none;
+	align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
+.result{
+}
+
+.list-group-item {
+	width: 100%;
+	text-align: center;
+	padding-right:20px;
+}
+
+.user-list{
+	width: 40%;
+	height:100%;
+	margin: 5%;
+}
+
+.list{
+	border: 1px solid black;
+	height: 112vh;
+}
+
+.listed-names li{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.form-check-input{
+	margin-left: 55px;
+	padding: 0 20px;
+}
