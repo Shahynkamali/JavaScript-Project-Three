@@ -41,15 +41,15 @@ let restaurantList = [];
   			const selectedRestaurant = $(this).prev().text();
   			const selectedHTML = `
   			<div class="listed-names">
-	  			<li class="list-group-item">${selectedRestaurant}<div><input type="checkbox" class="form-check-input" id="exampleCheck1">
-  		  		<label class="form-check-label" for="exampleCheck1"><strong>Visited</strong></label><div></li>
+	  			<li class="list-group-item"><button type="button"class="remove btn btn-primary">REMOVE</button>${selectedRestaurant}<div><input type="checkbox" class="form-check-input" id="exampleCheck1">
+  		  		<label class="form-check-label" for="exampleCheck1"><strong>Visited</strong></label></div></li>
   		  	</div>	
   			`
 
   			$('.list').append(selectedHTML);
   			restaurantList.push(selectedRestaurant);
   			console.log(restaurantList.length);
-  				if(restaurantList.length === 10){
+  				if(restaurantList.length === 11){
   				$(".addItem").attr("disabled", true);
   			}
 
@@ -63,6 +63,12 @@ let restaurantList = [];
 		console.log(restaurantList);
 		$(".addItem").attr("disabled", false);
 
+	})
+
+	$('body').on('click', '.remove', function(e){
+		e.preventDefault();
+		 $(this).parent().remove();
+		 console.log('click')
 	})
 
 
