@@ -1,3 +1,5 @@
+$(document).ready(function() {
+    
 
 $('#submit').on("click", function(e){
 	e.preventDefault();
@@ -20,7 +22,7 @@ $('#submit').on("click", function(e){
   	const restaurantHTML = `
 	<div class = "listItems">
 		<li>
-		  <a href="${restaurantobj.mobile_reserve_url}" class="list-group-item">${restaurantobj.name}</a>
+		  <a target="_blank" href="${restaurantobj.mobile_reserve_url}" class="list-group-item">${restaurantobj.name}</a>
 		  <button type="submit" id="addItem" class="btn btn-default addItem">Add to List!</button>
 		</li>
 		<img src=${restaurantobj.image_url}>
@@ -32,29 +34,32 @@ $('#submit').on("click", function(e){
 	 })
 
    });
+
 let restaurantList = [];
 
 
 		$("body").on("click", ".addItem", function(e){
 			e.preventDefault();
-			
   			const selectedRestaurant = $(this).prev().text();
   			const selectedHTML = `
   			<div class="listed-names">
-	  			<li class="list-group-item"><button type="button"class="remove btn btn-primary">REMOVE</button>${selectedRestaurant}<div><input type="checkbox" class="form-check-input" id="exampleCheck1">
-  		  		<label class="form-check-label" for="exampleCheck1"><strong>Visited</strong></label></div></li>
+	  			<li class="list-group-item">${selectedRestaurant}<div><input type="checkbox" name="check"class="form-check-input" id="exampleCheck1">
+  		  		<label class="form-check-label" for="exampleCheck1"><strong>Visited</strong></label></div><button type="button"class="remove btn btn-primary">REMOVE</button></li>
   		  	</div>	
   			`
+
+
 
   			$('.list').append(selectedHTML);
   			restaurantList.push(selectedRestaurant);
   			console.log(restaurantList.length);
-  				if(restaurantList.length === 11){
+  				if(restaurantList.length === 10){
   				$(".addItem").attr("disabled", true);
   			}
 
   			
 		})
+
 
 	$('#clear').on('click', function(e){
 		e.preventDefault();
@@ -68,8 +73,30 @@ let restaurantList = [];
 	$('body').on('click', '.remove', function(e){
 		e.preventDefault();
 		 $(this).parent().remove();
-		 console.log('click')
+		
 	})
+
+		$('body').on('click', '.form-check-input', function(){
+		const checkedbox = $('input[name="check"]');
+		//console.log(checkedbox);
+		const checkedOn = checkedbox.attr('checked', true)
+		const checking = (this.checked);
+		console.log(checking)
+		if(checking === true){
+			$(this).parent().parent().css("background-color", "yellow");
+		} else {
+			$(this).parent().parent().css("background-color", "white");
+		}
+	});
+
+
+
+
+
+	
+});
+
+
 
 
 

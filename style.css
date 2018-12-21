@@ -11,6 +11,9 @@
 	height: 100vh;
     overflow: auto;
 }
+.searchBar{
+	position: fixed;
+}
 
 .searchContainer button{
 	margin: 10px;
@@ -23,7 +26,10 @@
 .buttons{
 	display: flex;
 	flex-direction: row;
-	height:170px;
+	height:60px;
+}
+.list-group{
+	overflow: auto;
 }
 .listItems{
 	padding-top: 50px;
@@ -35,18 +41,22 @@
 
 li{
 	list-style-type: none;
-	align-items: center;
+	align-items: left;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .result{
 }
 
-.list-group-item {
+.list-group-item li {
 	width: 100%;
 	text-align: center;
 	padding-right:20px;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .user-list{
@@ -57,13 +67,14 @@ li{
 
 .list{
 	border: 1px solid black;
-	height: 112vh;
+	height: 82vh;;
 }
 
 .listed-names li{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
+	text-align: center;
 }
 .form-check-input{
 	margin-left: 55px;
