@@ -9,6 +9,7 @@ $('#submit').on("click", function(e){
 	fetch(endpoint)
 	.then(obj => obj.json())
 	.then(data => {
+	
 
   	const restaurantArray = data.restaurants;
   	restaurantNames = [];
@@ -73,30 +74,21 @@ let restaurantList = [];
 	$('body').on('click', '.remove', function(e){
 		e.preventDefault();
 		 $(this).parent().remove();
+		 if(restaurantList.length <= 10){
+  				$(".addItem").attr("disabled", false);
+  			}
+  		restaurantList.pop();
 		
 	})
 
 		$('body').on('click', '.form-check-input', function(){
-		const checkedbox = $('input[name="check"]');
-		//console.log(checkedbox);
-		const checkedOn = checkedbox.attr('checked', true)
-		const checking = (this.checked);
-		console.log(checking)
-		if(checking === true){
-			$(this).parent().parent().css("background-color", "yellow");
-		} else {
-			$(this).parent().parent().css("background-color", "white");
-		}
-	});
-
-
-
-
-
-	
+			 checkedState = $(this).attr('checked');
+                  $(this).parent('div').children('.checkbox:checked').each(function () {
+                  $(this).attr('checked', false);
+                  });
+                  $(this).attr('checked', checkedState);
+		});
 });
-
-
 
 
 
