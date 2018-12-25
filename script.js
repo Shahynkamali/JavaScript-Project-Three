@@ -33,6 +33,9 @@ $('#submit').on("click", function(e){
 		 }).join('')
   		$('.result').empty().append(filteredRestaurant);
 	 })
+	.catch(data =>{
+		alert("Please enter a name of a restaurant");
+	})
 
    });
 
@@ -82,11 +85,18 @@ let restaurantList = [];
 	})
 
 		$('body').on('click', '.form-check-input', function(){
-			 checkedState = $(this).attr('checked');
-                  $(this).parent('div').children('.checkbox:checked').each(function () {
-                  $(this).attr('checked', false);
-                  });
-                  $(this).attr('checked', checkedState);
+			const checkbox = $('input[name="check"]');
+			checkbox.change(function(){
+				if(this.checked === true){
+					$(this).parent().parent().css("background-color", "yellow").attr('checked');
+				} else{
+					$(this).parent().parent().css("background-color", "white");
+				}
+			})
+
+		
+
+			 
 		});
 });
 
