@@ -54,7 +54,7 @@ let restaurantList = [];
 
 
 
-  			$('.list').append(selectedHTML);
+  			$('.list').prepend(selectedHTML);
   			restaurantList.push(selectedRestaurant);
   			console.log(restaurantList.length);
   				if(restaurantList.length === 10){
@@ -83,19 +83,33 @@ let restaurantList = [];
   		restaurantList.pop();
 		
 	})
+	  let moveToBottom = function(item){
+    item.fadeOut(function(){
+      item.appendTo($('.list'));
+      item.fadeIn();
+    });
+  };
+  	  let moveToTop = function(item){
+    item.fadeOut(function(){
+      item.prepend($('ul#todos'));
+      item.fadeIn();
+    });
+  };
 
 		$('body').on('click', '.form-check-input', function(){
 			const checkbox = $('input[name="check"]');
 			checkbox.change(function(){
 				if(this.checked === true){
-					$(this).parent().parent().css("background-color", "yellow").attr('checked');
+					let item = $(this).parent().parent()
+					item.css("background-color", "yellow")
+					moveToBottom(item)
 				} else{
-					$(this).parent().parent().css("background-color", "white");
+					$(this).parent().parent().css("background-color", "white")
+					let item = $(this).parent().parent()
+					item.css("background-color", "white")
+					moveToTop(item)
 				}
 			})
-
-		
-
 			 
 		});
 });
